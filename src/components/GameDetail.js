@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 //Redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { smallImage } from "../util";
 //IMAGES
 import playstation from "../img/playstation.svg";
 import steam from "../img/steam.svg";
@@ -89,7 +88,7 @@ const GameDetail = ({ pathId }) => {
             <Media>
               <motion.img
                 layoutId={`image ${pathId}`}
-                src={smallImage(game.background_image, 1280)}
+                src={game.background_image}
                 alt={game.background_image}
               />
             </Media>
@@ -98,11 +97,7 @@ const GameDetail = ({ pathId }) => {
             </Description>
             <div className="gallery">
               {screen.results.map((screen) => (
-                <img
-                  src={smallImage(screen.image, 1280)}
-                  key={screen.id}
-                  alt={screen.image}
-                />
+                <img src={screen.image} key={screen.id} alt={screen.image} />
               ))}
             </div>
           </Detail>
